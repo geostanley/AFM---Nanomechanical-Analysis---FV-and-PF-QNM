@@ -21,7 +21,16 @@ Output: Flattened image, matrix of force curves aligned by baseline and contact 
 
 ## Script 2: NM_Select_Crop.m ##
 
+Loads the image, E_eff, and aligned force curve data previously saved into a .mat structure. Asks the user to select the centres of the pores, crops the pores and E_eff values, and saves the cropped image and E_eff data into new matrices. It then radially bins this data.
+
+This script is designed to work for pores cropped near the edge of the image. As long as the central axis of rotation is visible to the user, it can be selected, and the data will be carried forward.
+
+The output is a new data structure containing the cropped height data and Hertz data, along with the radially binned height and E_eff data. A count array comes with each radially binned array, tracking how many force curves are in each radial bin. This takes into account bins of different sizes, and force curves that have been binned.
+
 ## Script 3: NM_Collate.m ##
+
+This script loads all the data structures containing the cropped pores and all their concomitant information. It concatonates everything, and saves the data into a new data structure with three fields: 1, with the information on the cropped pores in matrices; 2, with the information on the cropped pores stored in their radially binned format; and 3, with the information stored as the original images (uncropped). This therefore concatonates all the information for both rotational averaging, and plotting.
+
 
 ## Script 4: NM_Rotate_Average.m ##
 
