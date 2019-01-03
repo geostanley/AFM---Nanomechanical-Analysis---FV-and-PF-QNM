@@ -15,4 +15,14 @@ The project is separated into 5 main scripts:
 
 ## Script 1: NM_Load_Hertz_Save.m ##
 
-It loads a series of .spm image files and their concomitant .pfc files. It performs a 1st order background subtraction on the image file. It then loads all the force curves from the .pfc file, finds the contact point for each force curve and then applied the Hertz model from the contact point to the maximum indentation. Each flattened image, matrix of force curves, and matrix of E_eff values (from the Hertz model) are then saved as a data structure.
+Loads a series of .spm image files and their concomitant .pfc files. The deflection sensitivity (nm/V) and spring constant (N/m) of the calibrated cantilever, used during the experiment, must be entered. Performs a 1st order background subtraction on the image file. It then loads all the force curves from the .pfc file, finds the contact point for each force curve (see **FC_ContactPoint_Determination.m**), and then applies the Hertz model from the contact point to the maximum indentation. Each flattened image, matrix of force curves, and matrix of effective Young's modulus (E_eff) values (from the Hertz model) are then saved out as a data structure.
+
+Output: Flattened image, matrix of force curves aligned by baseline and contact point, matrix of calculated E_eff values.
+
+## Script 2: NM_Select_Crop.m ##
+
+## Script 3: NM_Collate.m ##
+
+## Script 4: NM_Rotate_Average.m ##
+
+## Script 5: NM_Figures.m ##
