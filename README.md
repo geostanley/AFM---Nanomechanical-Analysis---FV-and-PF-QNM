@@ -42,3 +42,11 @@ It also saves out the indentation values from every force curve for plotting of 
 ## Script 5: NM_Figures.m ##
 
 This script generates publication quality figures.
+
+## Authors
+
+George J Stanley
+
+## Acknowledgements
+
+Acknowledgements to Jonathan Lanset for linspecer, and to Rob Campbell for shadedErrorBar.
