@@ -25,19 +25,17 @@ Loads the image, E_eff, and aligned force curve data previously saved into a .ma
 
 This script is designed to work for pores cropped near the edge of the image. As long as the central axis of rotation is visible to the user, it can be selected, and the data will be carried forward.
 
-The output is a new data structure containing the cropped height data and Hertz data, along with the radially binned height and E_eff data. A count array comes with each radially binned array, tracking how many force curves are in each radial bin. This takes into account bins of different sizes, and force curves that have been binned.
+The output is a new data structure containing the cropped height and E_eff data, along with the radially binned height and E_eff data. A count array comes with each radially binned array, tracking how many force curves are in each radial bin. This takes into account bins of different sizes, and force curves that have been binned.
 
 ## Script 3: NM_Collate.m ##
 
-This script loads all the data structures containing the cropped pores and all their concomitant information. It concatonates everything, and saves the data into a new data structure with three fields: 1, with the information on the cropped pores in matrices; 2, with the information on the cropped pores stored in their radially binned format; and 3, with the information stored as the original images (uncropped). This therefore concatonates all the information for both rotational averaging, and plotting.
+This script is designed to aggregate all the analysed images within one experiment and put them into one data structure. This enables averaging of the results in the following script.
+
+Loads all the data structures containing the cropped pores and all their concomitant information (must enter file numbers would like to concatonate, manually). It concatonates everything, and saves the data into a new data structure with three fields: 1, with the information on the cropped pores in matrices; 2, with the information on the cropped pores stored in their radially binned format; and 3, with the information stored as the original images (uncropped). This therefore concatonates all the information for both rotational averaging, and plotting.
 
 ## Script 4: NM_Rotate_Average.m ##
 
-This script loads all the concatonated data from the data structure: GenericFileName - Height_YM_CP_Cropped_rb_concatonated.mat
-
-It then averages all the data based on their radial distance from the centre of the pore - ready for plotting in the next (and final) script.
-
-It also saves out the indentation values from every force curve for plotting of the true height. This should have been done in the first script, but I forgot, and I've already processed too much data, so I'm throwing it in here like the cowboy I always knew I could be.
+This script loads all the concatonated data from the previous script. It then averages all the data based on their radial distance from the centre of the pore - ready for plotting in the next (and final) script.
 
 ## Script 5: NM_Figures.m ##
 
